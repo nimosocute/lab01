@@ -1,0 +1,255 @@
+/* styles.css */
+:root {
+  --primary-color: #4e54c8;
+  --secondary-color: #8f94fb;
+  --accent-color: #ff7e5f;
+  --text-color: #333;
+  --light-bg: #f8f9fa;
+  --dark-bg: #343a40;
+  --timeline-color: #6c757d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 30px;
+}
+
+/* Profile Section */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--secondary-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.name {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-info p {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.profile-info a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.profile-info a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--secondary-color);
+  color: var(--primary-color);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.section-content {
+  padding: 0 10px;
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+}
+
+.timeline li {
+  position: relative;
+  margin-bottom: 25px;
+  padding-left: 30px;
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  border: 2px solid white;
+  box-shadow: 0 0 0 3px var(--accent-color);
+}
+
+.timeline span {
+  display: block;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.timeline ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.timeline ul li {
+  list-style-type: disc;
+  margin-bottom: 8px;
+  padding-left: 0;
+}
+
+.timeline ul li::before {
+  display: none;
+}
+
+/* Skills */
+.section ul:not(.timeline) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  list-style: none;
+}
+
+.section ul:not(.timeline) li {
+  background-color: var(--light-bg);
+  padding: 12px 15px;
+  border-radius: 5px;
+  border-left: 4px solid var(--accent-color);
+  transition: transform 0.3s;
+}
+
+.section ul:not(.timeline) li:hover {
+  transform: translateX(5px);
+  background-color: #e9ecef;
+}
+
+/* Projects */
+.section li strong {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+footer ol {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+}
+
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+footer a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .avatar {
+    margin-bottom: 20px;
+  }
+  
+  .section ul:not(.timeline) {
+    grid-template-columns: 1fr;
+  }
+  
+  .name {
+    font-size: 1.8rem;
+  }
+}
